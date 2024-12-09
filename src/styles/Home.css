@@ -1,0 +1,32 @@
+.HomeContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2em;
+}
+.Info__container{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    gap: 15px;
+}
+
+.accesos__directos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+.acceso__directo{
+    width: 32%;
+    cursor: pointer;
+    border: solid 1px #d3bd9e;
+    border-radius: 8px;
+}
+.acceso__directo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}

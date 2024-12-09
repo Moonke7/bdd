@@ -1,0 +1,29 @@
+.inventory__container {
+  width: 100%;
+}
+
+.deck_folder {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: solid 1px #d3bd9e;
+}
+
+.deck {
+  color: #b4865b;
+}
+.deck:hover {
+  transition: 0.5s;
+  padding: 0.5em 1em;
+  color: #312019;
+  border-bottom: solid 0.2em #399083;
+}
+.folder {
+  color: #b4865b;
+}
+.folder:hover {
+  transition: 0.1s;
+  padding: 0.5em 1em;
+  color: #312019;
+  border-bottom: solid 0.2em #399083;
+}
