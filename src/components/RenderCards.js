@@ -22,7 +22,7 @@ function LazyLoadCard({ card, select }) {
   return (
     <div className="Card" ref={ref}>
       {inView ? (
-        <img src={card.imgURL} alt={card.name} onClick={() => select(card.id)}/>
+        <img src={card.img} alt={card.name} onClick={() => select(card.id_carta)}/>
       ) : (
         <div className="Placeholder">Loading...</div>
       )}

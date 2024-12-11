@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import RenderCards from "../components/RenderCards";
 import { GlobalContext } from "../GlobalContext";
 
-export default function FolderSelected() {
-  const { idInventario, idCarpeta, carpetaNombre } = useContext(GlobalContext);
+export default function DeckSelected() {
+  const { idInventario, idMazo, carpetaNombre } = useContext(GlobalContext);
   const [cards, setCards] = useState(null);
   const [results, setResults] = useState(cards);
   const [selectedCard, setSelectedCard] = useState(cards);
@@ -17,7 +17,7 @@ export default function FolderSelected() {
     const loadCards = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3002/api/carpeta/${idCarpeta}/cards`,
+          `http://localhost:3002/api/mazo/${idMazo}/cards`,
           {
             method: "GET",
             headers: {
@@ -41,18 +41,21 @@ export default function FolderSelected() {
     };
 
     loadCards();
-  }, [idInventario, idCarpeta]);
+  }, [idInventario, idMazo]);
   return (
     <div>
-      <h1
-        style={{
-          textDecoration: "underline",
-          marginBottom: "15px",
-          color: "#312019",
-        }}
-      >
-        {carpetaNombre}
-      </h1>
+      <div>
+        <h1
+          style={{
+            textDecoration: "underline",
+            marginBottom: "15px",
+            color: "#312019",
+          }}
+        >
+          {carpetaNombre}
+        </h1>
+
+      </div>
       <div className="cardsContainer">
         {cards ? (
           <RenderCards data={results} select={Select} />

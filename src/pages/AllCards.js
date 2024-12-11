@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import { combinedData } from "../combinedData";
+import { useContext, useEffect, useState } from "react";
 import Input from "../components/Input";
 import RenderCards from "../components/RenderCards";
 import "../styles/AllCards.css";
 import SelectCard from "../components/SelectCard";
+import { GlobalContext } from "../GlobalContext";
 
 export default function AllCards() {
-  const cards = combinedData;
+  const { idInventario } = useContext(GlobalContext);
+  const [cards, setCards] = useState(null);
   const [results, setResults] = useState(cards);
   const [inputValue, setInputValue] = useState("");
   const [selectedCard, setSelectedCard] = useState(cards);
@@ -35,9 +36,39 @@ export default function AllCards() {
 
   const Select = (Id) => {
     // busca la carta clickeada en todas las cartas y hace que el modal sea visible
-    setSelectedCard(cards.filter((card) => card.id === Id));
-    setModalView(true)
+    setSelectedCard(cards.filter((card) => card.id_carta === Id));
+    setModalView(true);
   };
+
+  useEffect(() => {
+    const loadCards = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3002/api/cartas`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.status !== 200) {
+          throw new Error(`Error al obtener datos ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log(data);
+        setCards(data);
+        setResults(data);
+        setSelectedCard(data)
+      } catch (error) {
+        console.error("Error al obtener datos:", error);
+      }
+    };
+
+    loadCards();
+  }, [idInventario]);
 
   return (
     <section>
@@ -49,9 +80,21 @@ export default function AllCards() {
       />
       <h2>Cartas</h2>
       <div className="cardsContainer">
-        <RenderCards data={results} select={Select} />
+        {cards ? (
+          <RenderCards data={results} select={Select} />
+        ) : (
+          <h3>cargando...</h3>
+        )}
       </div>
-      <SelectCard card={selectedCard} view={modalView} setview={setModalView} />
+      {selectedCard ? (
+        <SelectCard
+          card={selectedCard}
+          view={modalView}
+          setview={setModalView}
+        />
+      ) : (
+        <h3>cargando....</h3>
+      )}
     </section>
   );
 }

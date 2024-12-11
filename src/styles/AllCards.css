@@ -1,88 +1,122 @@
-section{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.cardsContainer{
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
+.cardsContainer {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
 }
-.Card{
-    width: 18%;
-    margin-bottom: 25px;
-}
-
-.Card img{
-    height: auto;
-    width: 100%;
+.Card {
+  width: 18%;
+  margin-bottom: 25px;
+  cursor: pointer;
 }
 
-.Card p{
-    font-size: 1.4em;
-    font-family: monospace;
+.Card img {
+  height: auto;
+  width: 100%;
+  cursor: pointer;
 }
 
+.Card p {
+  font-size: 1.4em;
+  font-family: monospace;
+}
 
 /* --------------------FONDO -----------------------*/
-.modalContainer{
-    position: fixed;
-    top: 10%;
-    width: 60%;
-    height: 70%;
-    background-color: white;
-    align-self: flex-start;
-    align-items: center;
-    background-color: #dbf0e9;
-    gap: 30px;
-    padding: 0 15px;
-    margin-left: 1%;
-    border-radius: 8px;
-    z-index: 20;
+.modalContainer {
+  position: fixed;
+  top: 10%;
+  width: 60%;
+  height: 70%;
+  background-color: white;
+  align-self: flex-start;
+  align-items: center;
+  background-color: #dbf0e9;
+  gap: 30px;
+  padding: 0 15px;
+  margin-left: 1%;
+  border-radius: 8px;
+  z-index: 20;
 }
-.modalContainer img{
-    height: 90%;
+.modalContainer img {
+  height: 90%;
 }
-#close{
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
+#close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 }
-.info{
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    height: 90%;
-}
-
-.buttons{
-    position: absolute;
-    bottom: 30px;
-    padding: 15px 0;
-}
-.button{
-    padding: 15px;
-    border: solid 1px #e4d7c4;
-    border-radius: 8px;
-    background-color: #e4d7c4;
-    cursor: pointer;
-}
-.button:hover{
-    background-color: #f2ece2;
-    transition: 1s;
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  height: 90%;
+  width: 50%;
 }
 
-.fondo{
-    position: fixed;
-    width: 200vw;
-    height: 200vh;
-    align-self: center;
-    background-color: black;
-    left: -70vw;
-    z-index: 10;
-    top: 0;
-    opacity: .5;
+.buttons {
+  position: absolute;
+  bottom: 30px;
+  padding: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.button {
+  padding: 15px 10px;
+  border: solid 1px #e4d7c4;
+  border-radius: 8px;
+  background-color: #e4d7c4;
+  cursor: pointer;
+  width: 90%;
+}
+.button:hover {
+  background-color: #f2ece2;
+  transition: 1s;
+}
+
+.fondo {
+  position: fixed;
+  width: 200vw;
+  height: 200vh;
+  align-self: center;
+  background-color: black;
+  left: -70vw;
+  z-index: 10;
+  top: 0;
+  opacity: 0.2;
+}
+
+/* ------------------- SELECT PARA CARPETAS ------------------*/
+#options{
+  margin: 20px 0;
+  padding: 15px;
+  border: solid 1px #e4d7c4;
+  border-radius: 8px;
+  background-color: #e4d7c4;
+  width: 90%;
+}
+.info button{
+  padding: 5px;
+  border: solid 1px #e4d7c4;
+  border-radius: 8px;
+  background-color: #e4d7c4;
+  width: 45%;
+  cursor: pointer;
+}
+.info button:hover{
+  background-color: #dbc8ac;
+  transition: .5s;
+}
+
+.addButtons{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
 }

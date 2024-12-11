@@ -27,3 +27,104 @@
   color: #312019;
   border-bottom: solid 0.2em #399083;
 }
+
+/* --------------- MODEL DE CREATE ----------------------*/
+
+.createContainer {
+  transition: 0.6s;
+  position: fixed;
+  width: 50%;
+  padding: 1.8em;
+  border: solid 2px #e4d7c4;
+  background-color: #eaf7f4;
+  z-index: 20;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.createContainer button {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  background-color: #287369;
+  color: aliceblue;
+  border: solid 2px #f4efe6;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.createContainer button:hover {
+  background-color: #538a82;
+  color: aliceblue;
+}
+.createContainer input {
+  width: 90%;
+  background-color: #287369;
+  color: aliceblue;
+  border-radius: 10px;
+  border: solid 2px #f4efe6;
+  padding: 12px 5px;
+  width: 100%;
+  display: flex;
+}
+.createContainer input::placeholder {
+  color: aliceblue;
+}
+
+.createButtonContainer {
+  width: 30%;
+  padding: 10px 0;
+  display: flex;
+}
+.createButton {
+  background-color: #287369;
+  color: aliceblue;
+  border-radius: 10px;
+  border: solid 2px #f4efe6;
+  padding: 12px 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.createButton:hover {
+  background-color: #5bac9d;
+  transition: 1s;
+}
+
+/* -----------FOLDERS-------------------*/
+
+.foldersContainer {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  overflow: hidden;
+}
+.userFolder {
+  overflow: hidden;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.userFolder img {
+  width: 100%;
+}
+.userFolder h3 {
+  overflow: hidden;
+  position: absolute;
+  color: aliceblue;
+}
+
+#delete{
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+#edit{
+  position: absolute;
+  top: 25px;
+  right: 0px;
+}

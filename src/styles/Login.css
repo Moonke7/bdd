@@ -1,0 +1,49 @@
+.LoginContainer {
+  width: 30%;
+  align-self: center;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  background-color: #cce6dd;
+  align-items: center;
+  margin-top: 5%;
+  padding: 4em 1em 4em 1em;
+  border-radius: 8px;
+}
+.sendContainer {
+  width: 90%;
+}
+.sendContainer h4 {
+  color: #312019;
+}
+.sendContainer a {
+  color: #8a5d44;
+  text-decoration: none;
+}
+.send {
+  margin-top: 20px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f2ece2;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+}
+.send:hover {
+  background-color: #f8edd9;
+}
+.LoginContainer input {
+  background-color: #f4efe6;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  width: 90%;
+  padding: 15px 5px;
+}
+.error{
+  color: red;
+}

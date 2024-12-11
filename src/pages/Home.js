@@ -1,28 +1,60 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import InfoBox from "../components/InfoBox";
 import "../styles/Home.css";
+import { useContext, useEffect, useState } from "react";
+import { GlobalContext } from "../GlobalContext";
 
 function Home() {
+  const { username, idInventario, idWishlist } = useContext(GlobalContext);
+  const [data, setData] = useState(null);
   const navigate = useNavigate();
 
   const navigateToInventory = () => {
-    navigate("/Inventory/folders");  // Cambia la URL a /Inventory
+    navigate("/Inventory/folders"); // Cambia la URL a /Inventory
   };
   const navigateToDecks = () => {
-    navigate("/Inventory/decks"); 
-  }
+    navigate("/Inventory/decks");
+  };
   const navigateToWishlist = () => {
-    navigate("/Wishlist"); 
-  }
+    navigate("/Wishlist");
+  };
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3002/api/user/info/${idInventario}/${idWishlist}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.status !== 200) {
+          throw new Error(`Error al obtener datos ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log(data);
+        setData(data);
+      } catch (error) {
+        console.error("Error al obtener datos:", error);
+      }
+    };
+
+    loadData();
+  }, [idInventario, idWishlist]);
 
   return (
     <div className="HomeContainer">
-      <h1>Bienvenido username!</h1>
+      <h1>Bienvenido {username ? username : "username"}</h1>
       <div className="Info__container">
-        <InfoBox text={"Mazos"} desc={1233} />
-        <InfoBox text={"Carpetas"} desc={1233} />
-        <InfoBox text={"Wishlist"} desc={1233} />
-        <InfoBox text={"Cartas"} desc={1233} />
+        <InfoBox text={"Mazos"} desc={data ? data.totalMazos: 0} />
+        <InfoBox text={"Carpetas"} desc={data ? data.totalCarpetas: 0} />
+        <InfoBox text={"Wishlist"} desc={data ? data.totalWish ? data.totalWish: 0: 0} />
+        <InfoBox text={"Cartas"} desc={data ? data.totalCartas ? data.totalCartas: 0: 0} />
       </div>
       <div className="accesos__directos">
         <div className="acceso__directo" onClick={navigateToInventory}>
